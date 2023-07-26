@@ -1,0 +1,15 @@
+.container {
+  margin-right: 20%;
+  background-color: var(--backgroundColor);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 150px;
+}
+
+.textField {
+  padding: 0 25px 10px 25px;
+}
+
+.title {
+  padding-left: 25px;
+}
