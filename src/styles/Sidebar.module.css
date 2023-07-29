@@ -3,7 +3,7 @@
   background-color: var(--backgroundColor);
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 150px;
+  height: min-content;
 }
 
 .textField {

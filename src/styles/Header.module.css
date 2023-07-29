@@ -11,8 +11,8 @@
 }
 
 .label {
-  justify-content: center;
   padding-left: 5px;
+  width: 100px;
 }
 
 .p {

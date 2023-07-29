@@ -1,32 +1,39 @@
 import React from 'react'
 import styles from "../styles/FormComponent.module.css"
+import { setInsurance } from '../store/insurance/slice'
+import { useDispatch } from 'react-redux';
 
-export const FormComponent = ({ cities, ages }) => {
+export const FormComponent = ({
+  cities,
+  ages,
+  insurance,
+}) => {
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.container}>
+      <p className={styles.p}>* The availability of discounts depends on the given criteria
+      </p>
       <h2>User data</h2>
-      <form>
         <div className={styles.textField}>
           <label className={styles.textLabel}>Name:</label>
           <input
-            required
-            placeholder='Name'
+          required
             type="text"
             className={styles.input}
-          //value={newInvitation.place_church}
-          //onChange={({ target }) =>
-          // dispatch(setNewInvitation({ ...newInvitation, place_church: target.value }))
-          //}
+          value={insurance.name}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, name: target.value }))
+          }
           />
         </div>
         <div className={styles.textField}>
           <label className={styles.textLabel}>Age:</label>
           <select
             className={styles.select}
-          //value={newInvitation.design_id}
-          //onChange={({ target }) =>
-          //dispatch(setNewInvitation({ ...newInvitation, design_id: target.value }))}
+          value={insurance.age_id}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, age_id: target.value }))}
           >
             <option
               key={'-1'}
@@ -48,9 +55,9 @@ export const FormComponent = ({ cities, ages }) => {
           <label className={styles.textLabel}>City:</label>
           <select
             className={styles.select}
-          //value={newInvitation.design_id}
-          //onChange={({ target }) =>
-          //dispatch(setNewInvitation({ ...newInvitation, design_id: target.value }))}
+          value={insurance.city_id}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, city_id: target.value }))}
           >
             <option
               key={'-1'}
@@ -70,47 +77,46 @@ export const FormComponent = ({ cities, ages }) => {
         </div>
         <div className={styles.textField}>
           <label className={styles.textLabel}>Vehicle Power:</label>
-          <input
-            required
-            placeholder='Vehicle Power'
+        <input
             type="number"
             className={styles.input}
-          //value={newInvitation.place_church}
-          //onChange={({ target }) =>
-          // dispatch(setNewInvitation({ ...newInvitation, place_church: target.value }))
-          //}
+          value={insurance.vehicle_power}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, vehicle_power: target.value }))
+          }
           />
         </div>
         <div className={styles.textField}>
           <label className={styles.textLabel}>Voucher:</label>
-          <input
-            placeholder='Voucher'
+        <input
             type="number"
             className={styles.inputHalf}
-          //value={newInvitation.place_church}
-          //onChange={({ target }) =>
-          // dispatch(setNewInvitation({ ...newInvitation, place_church: target.value }))
-          //}
+          value={insurance.voucher}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, voucher: target.value }))
+          }
           />
           <label className={styles.currency}>EUR</label>
         </div>
         <div className={styles.textField}>
           <label className={styles.textLabel}>Price match:</label>
-          <input
-            placeholder='Price match'
+        <input
             type="number"
             className={styles.inputHalf}
-          //value={newInvitation.place_church}
-          //onChange={({ target }) =>
-          // dispatch(setNewInvitation({ ...newInvitation, place_church: target.value }))
-          //}
+          value={insurance.price_match}
+          onChange={({ target }) =>
+            dispatch(setInsurance({ ...insurance, price_match: target.value }))
+          }
           />
           <label className={styles.currency}>EUR</label>
         </div>
         <div className={styles.btnField}>
-          <button className={styles.btn}>Save</button>
-        </div>
-      </form>
+        <button
+          className={styles.btn}
+        >
+          Save
+        </button>
+      </div>
     </div>
   )
 }
