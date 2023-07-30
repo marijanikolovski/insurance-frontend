@@ -22,10 +22,13 @@ export const Header = ({ discounts, insurance }) => {
   return (
     <div className={styles.container}>
       <div className={styles.textField}>
-        <input
-          type='checkbox'
-          value={discounts[0]?.id}
-          onChange={handleSelect} />
+        {insurance.price_match ?
+          <p className={styles.p}>*</p> :
+          <input
+            type='checkbox'
+            value={discounts[0]?.id}
+            onChange={handleSelect} /> 
+        }
         <label className={styles.label}>{discounts[0]?.name}</label>
       </div>
       <div className={styles.textField}>

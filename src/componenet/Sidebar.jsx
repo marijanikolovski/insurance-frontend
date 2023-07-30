@@ -24,12 +24,16 @@ export const Sidebar = ({ coverages, insurance }) => {
       <h2 className={styles.title}>Coverages</h2>
       {coverages.map((coverage) => (
         <div key={coverage.id} className={styles.textField}>
+          {insurance.price_match ?
+            <p className={styles.p}>*</p> :
           <input
-            type='checkbox'
-            value={coverage.id}
-            onChange={handleSelect}
-          />
-          <label>{coverage.name}</label>
+              type='checkbox'
+              value={coverage.id}
+              onChange={handleSelect}
+            />
+
+          }
+          <p>{coverage.name}</p>
         </div>
       ))}
     </div>

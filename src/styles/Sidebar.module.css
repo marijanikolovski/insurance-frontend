@@ -3,13 +3,19 @@
   background-color: var(--backgroundColor);
   padding-top: 30px;
   padding-bottom: 30px;
-  height: min-content;
+  height: min-content + 20px;
+  width: 200px;
 }
 
 .textField {
+  display: flex;
   padding: 0 25px 10px 25px;
 }
 
 .title {
   padding-left: 25px;
+}
+
+.p {
+  padding-right: 3px;
 }
