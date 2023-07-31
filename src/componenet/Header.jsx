@@ -32,7 +32,7 @@ export const Header = ({ discounts, insurance }) => {
         <label className={styles.label}>{discounts[0]?.name}</label>
       </div>
       <div className={styles.textField}>
-        {insurance.coverage_id?.length >= 2 ?
+        {insurance.coverage_id?.length >= 2 && !insurance.price_match ?
           <input
             type='checkbox'
             checked={true}
@@ -42,7 +42,7 @@ export const Header = ({ discounts, insurance }) => {
         <label className={styles.label}>{discounts[1]?.name}</label>
       </div>
       <div className={styles.textField}>
-        {insurance.vehicle_power > 80 ? 
+        {(insurance.vehicle_power > 80 && !insurance.price_match) ? 
           <input
             type='checkbox'
             checked={true}
@@ -52,7 +52,7 @@ export const Header = ({ discounts, insurance }) => {
         <label className={styles.label}>{discounts[2]?.name}</label>
       </div>
       <div className={styles.textField}>
-        {insurance.vehicle_power > 100 ?
+        {insurance.vehicle_power > 100 && !insurance.price_match ?
         <input
           type='checkbox'
             checked={true}
@@ -63,7 +63,7 @@ export const Header = ({ discounts, insurance }) => {
       </div>
       <div className={styles.textTotal}>
         <p className={styles.p}>Total price</p>
-        <p className={styles.p}>{insurance.total_price.toFixed(2)}</p>
+        <p className={styles.p}>{insurance.total_price}</p>
       </div>
     </div>
   )
